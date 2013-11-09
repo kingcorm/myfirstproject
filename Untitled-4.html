@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<style>
+#clock{
+	width:auto;
+	height:34px;
+	float:right;
+	font-weight:bold;
+	
+	}
+body,td,th {
+	color: #00FF00;
+}
+body {
+	background-color: #0066FF;
+}
+</style>
+<script language="javascript" type="text/javascript">
+			function tS(){ x=new Date();x.setTime(x.getTime()); return x;} 
+			function lZ(x){ return (x>9)?x:'0'+x; } 
+			function tH(x){ if(x==0){ x=12; } 
+			return (x>12)?x-=12:x; } 
+			function dT(){ if(fr==0){ fr=1; document.write('<div style="text-align:center;"><a id="tP">'+eval(oT)+'</a></div>'); }document.getElementById('tP').innerHTML=eval(oT); setTimeout('dT()',1000); } 
+			function aP(x){ return (x>11)?' PM':' AM'; } 
+			var fr=0,oT="tH(tS().getHours())+':'+lZ(tS().getMinutes())+aP(tS().getHours())";
+
+</script>
+
+</head>
+
+
+<body>
+<div id="clock"><script language="JavaScript">dT();</script></div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<?php
+   // Link to the database server
+   $dbLink = mysql_connect('localhost', 'root', 'me32316');
+   if (!$dbLink) {
+       die('Could not connect to the datal_error());
+   }
+
+   // If this is in response to the "Add" button, insert the new record
+   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $author  = $_REQUEST['email'];
+      $comment = $_REQUEST['commenttext'];
+      $insert = sprintf("INSERT INTO comments (user, comment, page) ".
+                        "VALUES ('%s', '%s', '%s')",
+                        mysql_real_escape_string($aubase server: ' . mysql_error());
+   }
+
+   // Let's use our database
+   $db = mysql_select_db('mydatabase', $dbLink);
+   if (!$db) {
+       die('Could not connect to the database: ' . mysqthor),
+                        mysql_real_escape_string($comment),
+                        mysql_real_escape_string($_SERVER['PHP_SELF']));
+      mysql_query($insert) or die('Cannot add comment: '.mysql_error());
+   }
+?>
+
+<!DOCTYPE HTML>
+<html>
+<head>
+   <title>First page of comments application</title>
+   <meta charset="utf-8">
+   <link rel="stylesheet" href="server/comments.css">
+   <script src="server/comments.js"></script>
+   <style type="text/css">
+<!--
+.style1 {color: #000033}
+-->
+   </style>
+</head>
+<body class="defaults">
+<div id="newcomments" class="newcomments">
+      <form action="<?php echo $_SERVER['server/PHP_SELF']; ?>" method="POST">
+         <div class="entry">
+            <h4><span class="style1">email address : 
+              </span>
+              <input type="text" id="email" name="email"
+                                                      class="email" />
+            </h4>
+         </div>
+         <div class="entry">
+            <h4><span class="style1">Comment :</span> 
+              <textarea id="commenttext" name="commenttext"
+                                       class="commenttext"></textarea>
+            </h4>
+         </div>
+         <div class="entry">
+            <input type="submit" value="Add !" />
+         </div>
+         <input type="hidden" id="ipaddr" name="ipaddr" 
+                    value="<?php echo $_SERVER['REMOTE_ADDR']; ?>" />
+      </form>
+	  
+   </div>
+   <!-- begin htmlcommentbox.com -->
+ <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...</div>
+ <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+ <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=(hcb_user.PAGE || ""+window.location), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+<!-- end htmlcommentbox.com -->
+
+
+</body>
+</html>
+
+<form action="/html/tags/html_form_tag_action.cfm" method="post">
+Comments:<br />
+<textarea name="comments" id="comments">
+Hey... say something!
+</textarea><br />
+<input type="submit" value="Submit" />
+</form>
+<!-- Close the database -->
+<?php mysql_close($dbLink); ?>

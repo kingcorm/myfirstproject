@@ -1,0 +1,47 @@
+/* CSS Document */
+.header {
+	width: 100%;
+	background-color: lightgrey;
+}
+.content {
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-bottom: 20px;
+}
+.comments {
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-bottom: 20px;
+	border-top: 3px groove lightgrey;
+	border-bottom: 3px groove lightgrey;
+}
+.newcomments {
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-bottom: 20px;
+}
+.entry {
+	vertical-align: top;
+	text-align: center;
+}
+.commenttitle {
+	text-align: left;
+}
+.commenttext {
+	text-align: left;
+	margin-left: 50px;
+	margin-bottom: 20px;
+}
+.email {
+	width: 80%;
+	margin-left: 10px;
+	margin-right: 50px;
+	margin-bottom: 10px;
+}
+.commenttext {
+	width: 83%;
+	margin-left: 10px;
+	margin-right: 50px;
+	margin-bottom: 10px;
+}
+

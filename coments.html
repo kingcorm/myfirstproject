@@ -1,0 +1,144 @@
+<?php
+   // Link to the database server
+   $dbLink = mysql_connect('localhost', 'root', 'me32316');
+   if (!$dbLink) {
+       die('Could not connect to the datal_error());
+   }
+
+   // If this is in response to the "Add" button, insert the new record
+   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $author  = $_REQUEST['email'];
+      $comment = $_REQUEST['commenttext'];
+      $insert = sprintf("INSERT INTO comments (user, comment, page) ".
+                        "VALUES ('%s', '%s', '%s')",
+                        mysql_real_escape_string($aubase server: ' . mysql_error());
+   }
+
+   // Let's use our database
+   $db = mysql_select_db('mydatabase', $dbLink);
+   if (!$db) {
+       die('Could not connect to the database: ' . mysqthor),
+                        mysql_real_escape_string($comment),
+                        mysql_real_escape_string($_SERVER['PHP_SELF']));
+      mysql_query($insert) or die('Cannot add comment: '.mysql_error());
+   }
+?>
+
+<!DOCTYPE HTML>
+<html>
+<head>
+   <title>sign up LUROS</title>
+   <meta charset="utf-8">
+   <link rel="stylesheet" href="server/comments.css">
+   <script src="server/comments.js"></script>
+   <style type="text/css">
+<!--
+.style5 {
+	color: #999999;
+	font-size: x-large;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+.style8 {font-size: large}
+.style13 {font-size: x-large; font-weight: bold; color: #999999;}
+#Layer1 {
+	position:absolute;
+	width:599px;
+	height:279px;
+	z-index:1;
+	left: 512px;
+	top: 89px;
+}
+#Layer2 {
+	position:absolute;
+	width:49px;
+	height:29px;
+	z-index:2;
+	left: 619px;
+	top: 441px;
+}
+.style16 {font-family: Geneva, Arial, Helvetica, sans-serif}
+.style17 {font-size: x-large; font-weight: bold; color: #999999; font-family: Geneva, Arial, Helvetica, sans-serif; }
+.style18 {
+	font-size: xx-large;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+#Layer3 {
+	position:absolute;
+	width:265px;
+	height:61px;
+	z-index:3;
+	left: 561px;
+	top: 0px;
+}
+#Layer4 {
+	position:absolute;
+	width:263px;
+	height:63px;
+	z-index:4;
+	left: 530px;
+	top: 557px;
+}
+-->
+   </style>
+</head>
+<body class="defaults">
+<div id="newcomments" class="newcomments">
+      <form action="<?php echo $_SERVER['server/PHP_SELF']; ?>" method="POST">
+         <div class="entry">
+           <div id="Layer1">
+             <div class="entry"><span class="style17">password: </span> <span class="style16"><span class="style13">
+               <span class="style15">
+               <input type="text" id="email" name="email"
+                                                      class="email" />
+               <span class="entry"><span class="style17">password: </span> <span class="style16"><span class="style13"> <span class="style15">
+               <input type="text" id="email3" name="email3"
+                                                      class="email" />
+               </span><span class="style17">               repeat password :</span><span class="style8">
+  <input type="text" id="email" name="email"
+                                                      class="email" />
+  </span>
+  <h4><span class="style5">email address : </span>
+      <input type="text" id="email" name="email"
+                                                      class="email" />
+  </h4>
+             </div>
+             
+             <div class="entry">
+               <h4><span class="style13"><span class="style18">username:</span>
+               <input type="text" id="email2" name="email2"
+                                                      class="email" />
+               </span></h4>
+               <p><span class="style13"><span class="style18">name:</span>
+                   <input type="text" id="email22" name="email22"
+                                                      class="email" />
+               </span></p>
+               <p><span class="style13"><span class="style16">age:</span>
+                   <input type="text" id="email23" name="email23"
+                                                      class="email" />
+               </span></p>
+             </div>
+             <span class="style13">
+             <div class="entry"></div>
+           </span></div>
+        </div>
+  </form>
+</div>
+<span class="entry"></span>
+<div id="Layer2"><span class="style13">
+  <div class="entry">
+    <input name="subbmit" type="submit" id="subbmit" value="SIGN UP !" />
+  </div>
+</span></div>
+<div id="Layer3">
+  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="176" height="60">
+    <param name="movie" value="text14.swf">
+    <param name="quality" value="high">
+    <param name="bgcolor" value="#FFFFFF">
+    <embed src="text14.swf" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="176" height="60" bgcolor="#FFFFFF"></embed>
+  </object>
+</div>
+</body>
+</html>
+
+<!-- Close the database -->
+<?php mysql_close($dbLink); ?>
